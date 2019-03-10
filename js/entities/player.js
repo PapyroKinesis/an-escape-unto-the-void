@@ -21,6 +21,9 @@ Player.prototype.handleEvent = function(e) {
         case 186: //Semicolon
             this._pickUp();
             return;
+        case 73: //I
+            this._inventory();
+            return;
     }
     var keyMap = {};
     keyMap[38] = 0;
@@ -64,11 +67,24 @@ Player.prototype._pickUp = function() {
     var key = this._x+","+this._y;
     for(var i = 0; i < itemNames.length; i++) {
         if(Game.map[key] == itemNames[i].getSymbol()) {
-            this.inventory.push(itemNames[i].getName);
+            this.inventory.push(itemNames[i]);
             chat(`You picked up the ${itemNames[i].name}.`);
             Game.map[key] = ".";
             return;
         }
     }
     chat(`There's nothing.`);
+}
+Player.prototype._inventory = function() {
+    for(var i = 0; i < itemNames.length; i++) {
+        var count = 0;
+        for(var j = 0; j < this.inventory.length; j++) {
+            if(this.inventory[j].name == itemNames[i].name) {
+                count++;
+            }
+        }
+        if(count > 0) {
+            addToLog(`${itemNames[i].name}(s): ${count}`);
+        }
+    }
 }

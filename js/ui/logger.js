@@ -44,3 +44,7 @@ function chat(name, message) {
 	}
 }
 pause();
+addToLog(`Use arrows keys to move.`);
+addToLog(`Enter/Space to inspect.`);
+addToLog(`Press ';' to pick up items.`);
+addToLog(`Press I to show your inventory.`);
