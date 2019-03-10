@@ -1,0 +1,59 @@
+body {
+    background-color: black;
+}
+h1 {
+    color: linen;
+}
+footer {
+    color: linen;
+    position: absolute;
+    bottom: 0;
+    border: linen;
+    border-radius: 10px
+}
+#log {
+    color: linen;
+    position: absolute;
+    right: 1.0em;
+    bottom: 3.0em;
+    width: 35%;
+    padding: 0 0.5ch;
+    font-size: 90%;
+    font-family: 'PT Mono', monospace;
+    transition: visibility 2s, opacity 2s;
+}
+#log::before {
+    content: "";
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40%;
+    box-shadow: 0 0 2em 2em black;
+}
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+hr {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+#inv {
+    visibility: hidden;
+}
